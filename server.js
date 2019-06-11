@@ -30,9 +30,7 @@ app.use(cors())
 
 // connection to mongodb
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
-mongoose.connection.on('connected', function(){
-    console.log(connected("Mongoose default connection is open to "));
-});
+
 
 app.get('/', function(req, res){
  res.json({"data" : "Hello World"});
