@@ -13,7 +13,7 @@ var storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage }).single('file')
 const PORT = 3000;
-const URL = `http://amtica.rabinhansda.com:${PORT}/`;
+const URL = `http://localhost:${PORT}/`;
 
 module.exports = {
     upload:(req, res, next) => {
@@ -24,7 +24,7 @@ module.exports = {
             }
             
             console.log('User id: ', userId);
-            const filePath = `${URL}files/uploads/${req.file.filename}`;
+            const filePath = `/files/uploads/${req.file.filename}`;
             FileUploadModel.create({
                 file_path: filePath,
                 file_name: req.file.filename,
