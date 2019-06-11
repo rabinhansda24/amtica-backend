@@ -4,7 +4,7 @@
   "description": "Basic authentication with JWT",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Rabin Hansda",
   "license": "ISC",
