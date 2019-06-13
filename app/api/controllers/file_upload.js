@@ -41,12 +41,29 @@ module.exports = {
     },
     getFilesByUser: (req, res, next) => {
         const userId = req.body.userId;
-        FileUploadModel.find({userid: userId}, (err, files) => {
-            if(err) {
+        userModel.findById(userId, (err, user) => {
+            if(err){
                 next(err);
             } else {
-                res.json({status:"success", message: "Users logs", data:{files: files}})
+                if(user.role == 'admin') {
+                    FileUploadModel.find({}, (err, files) => {
+                        if(err) {
+                            next(err);
+                        } else {
+                            res.json({status:"success", message: "Users logs", data:{files: files}})
+                        }
+                    })
+                } else {
+                    FileUploadModel.find({userid: userId}, (err, files) => {
+                        if(err) {
+                            next(err);
+                        } else {
+                            res.json({status:"success", message: "Users logs", data:{files: files}})
+                        }
+                    })
+                }
             }
         })
+        
     } 
 }
