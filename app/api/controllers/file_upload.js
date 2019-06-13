@@ -1,4 +1,5 @@
 const FileUploadModel = require('../models/fileupload');
+const userModel = require('../models/users');
 const mkdirp = require('mkdirp');
 const multer = require('multer');
 
