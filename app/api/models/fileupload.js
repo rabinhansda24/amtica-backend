@@ -13,6 +13,11 @@ const FileUploadSchema = new Schema({
         trim: true,
         required: true
     },
+    file_ext: {
+        type: String,
+        trim: true,
+        required: true
+    },
     userid: {
         type: String,
         trim: true,

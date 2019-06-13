@@ -23,11 +23,13 @@ module.exports = {
                 next(err);
             }
             
-            console.log('User id: ', userId);
-            const filePath = `/files/uploads/${req.file.filename}`;
+            let fname = req.file.filename;
+            const filePath = `/files/uploads/${fname}`;
+            let ext = fname.slice((fname.lastIndexOf(".") - 1 >>> 0) + 2);
             FileUploadModel.create({
                 file_path: filePath,
                 file_name: req.file.filename,
+                file_ext: ext,
                 userid: userId
             })
             const data = {
