@@ -1,4 +1,4 @@
-# amtica-backend
+# user-auth-backend
 
 1. Pull the code: git pull
 2. Install packages: npm install
